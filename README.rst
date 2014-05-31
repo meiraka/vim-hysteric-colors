@@ -1,5 +1,5 @@
 ===================
-vim-histeric-colors
+vim-hysteric-colors
 ===================
 
 ::
