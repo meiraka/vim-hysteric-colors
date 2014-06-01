@@ -20,16 +20,36 @@ let g:base_background = 'dark'
 " Pallet
 let s:positive = "#425290"
 let s:positive_dark = "#12124a"
-let s:positive_light = "#bfbfe0"
-let s:negative = "#b2020"
+let s:positive_light = "#bfbff0"
+let s:negative = "#b20200"
 let s:negative_dark = "#7a1010"
 let s:negative_light = "#cf8080"
 let s:neutral = "#909090"
 let s:neutral_dark = "#202020"
 let s:neutral_light = "#f0f0f0"
 
+if &background ==# 'light'
+  let s:temp = s:positive_dark
+  let s:positive_dark = s:positive_light
+  let s:positive_light = s:temp
+
+  let s:temp = s:negative_dark
+  let s:negative_dark = s:negative_light
+  let s:negative_light = s:temp
+
+  let s:temp = s:neutral_dark
+  let s:neutral_dark = s:neutral_light
+  let s:neutral_light = s:temp
+endif
+
+if has('gui_running')
+  let s:background = s:positive_dark
+else
+  let s:background = "NONE"
+endif
+
 " Normal texts.
-call hysteric_colors#Applys("NONE", s:neutral_light,
+call hysteric_colors#Applys(s:background, s:neutral_light,
 \                           "Normal",
 \                           "Folded")
 
@@ -105,15 +125,15 @@ call hysteric_colors#Apply("PMenu",     s:neutral_light, s:negative_dark)
 call hysteric_colors#Apply("WildMenu",  s:negative_dark, s:neutral_light)
 
 "Search
-call hysteric_colors#Apply("Question",        "NONE",         hysteric_colors#RGB6(3, 0, 0))
-call hysteric_colors#Apply("Search",          hysteric_colors#RGB6(2, 0, 0), hysteric_colors#Mono25(2))
-call hysteric_colors#Apply("IncSearch",       hysteric_colors#RGB6(2, 0, 0), hysteric_colors#Mono25(2))
+call hysteric_colors#Apply("Question",  "NONE", s:negative)
+call hysteric_colors#Apply("Search",    s:negative, s:neutral_dark)
+call hysteric_colors#Apply("IncSearch", s:negative, s:neutral_dark)
 
 "Split
-call hysteric_colors#Apply("VertSplit",     hysteric_colors#Mono25(2),      hysteric_colors#Mono25(2))
+call hysteric_colors#Apply("VertSplit",     s:neutral, s:neutral)
 
-call hysteric_colors#Apply("StatusLineNC",    "NONE",         hysteric_colors#Mono25(21))
-call hysteric_colors#Apply("StatusLine",      "NONE",         hysteric_colors#RGB6(4, 0, 0))
+call hysteric_colors#Apply("StatusLineNC",    "NONE",         s:neutral_light)
+call hysteric_colors#Apply("StatusLine",      "NONE",         s:negative_light)
 
 "VimDiff
 call hysteric_colors#Applys(s:positive_light,
@@ -125,10 +145,10 @@ call hysteric_colors#Applys(s:positive_light,
 call hysteric_colors#Applys(s:positive,
 \                           s:positive_dark,
 \                           "DiffText")
-call hysteric_colors#Applys(hysteric_colors#Mono25(24),
+call hysteric_colors#Applys(s:neutral_light,
 \                           s:negative_dark,
 \                           "DiffDelete")
 
-call hysteric_colors#Apply("Directory",       "NONE",         hysteric_colors#RGB6(4, 0, 0))
+call hysteric_colors#Apply("Directory", "NONE", s:negative_light)
 
 endif
