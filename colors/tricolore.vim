@@ -18,8 +18,8 @@ let g:colors_name = "tricolore"
 let g:base_background = 'dark'
 
 " Normal texts.
-call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(3, 4, 5),
-\                           "Nornal",
+call hysteric_colors#Applys("NONE", hysteric_colors#Mono25(23),
+\                           "Normal",
 \                           "Folded")
 
 " values
@@ -51,27 +51,33 @@ call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(2, 2, 3),
 call hysteric_colors#Apply("Title",           "NONE",         hysteric_colors#Mono25(12))
 
 " type
-call hysteric_colors#Apply("Type", "NONE", hysteric_colors#RGB6(3, 0, 0))
-call hysteric_colors#Apply("Typedef", "NONE", hysteric_colors#RGB6(3, 0, 0))
+call hysteric_colors#Apply("Type",
+\                          "NONE", hysteric_colors#RGB6(3, 1, 1))
+call hysteric_colors#Apply("StorageClass",
+\                          "NONE", hysteric_colors#RGB6(3, 3, 5))
+call hysteric_colors#Apply("Typedef",
+\                          "NONE", hysteric_colors#RGB6(3, 0, 0))
 
 "pair
 call hysteric_colors#Apply("MatchParen",      hysteric_colors#RGB6(3, 0, 0), hysteric_colors#Mono25(7))
 
 " comments
-call hysteric_colors#Apply("Comment", hysteric_colors#RGB6(3, 3, 4),
-\                          hysteric_colors#RGB6(0, 0, 1))
-call hysteric_colors#Apply("SpecialComment",  "None", hysteric_colors#RGB6(5, 0, 1))
-call hysteric_colors#Apply("Todo", hysteric_colors#Mono25(14), hysteric_colors#Mono25(2))
+call hysteric_colors#Apply("Comment", hysteric_colors#Mono25(19),
+\                          hysteric_colors#RGB6(1, 1, 2))
+call hysteric_colors#Apply("SpecialComment", hysteric_colors#Mono25(22),
+\                          hysteric_colors#RGB6(1, 1, 3))
+call hysteric_colors#Apply("Todo", hysteric_colors#Mono25(19),
+\                          hysteric_colors#RGB6(3, 1, 1))
 
 
 "PreProcessor
-call hysteric_colors#Apply("PreProc", "NONE", hysteric_colors#Mono25(10))
-call hysteric_colors#Apply("PreCondit", "NONE", hysteric_colors#Mono25(14))
-
-call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(4, 0, 0),
-\                           "Include",
+call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(3, 0, 0),
+\                           "PreProc",
 \                           "Define",
-\                           "Macro")
+\                           "PreCondit")
+call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(0, 0, 2),
+\                           "Include")
+
 
 " Special
 call hysteric_colors#Applys("NONE", hysteric_colors#RGB6(4, 0, 0),
