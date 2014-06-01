@@ -26,17 +26,28 @@ endfunction
 
 " Converts 24bit color to term color.
 function! hysteric_colors#HexToTerm (hexcolor)
-  function! s:hex2six(hex)
-    let s:six = float2nr(round(str2nr(a:hex, 16) * 6 / 256.0))
-    if s:six < 6
-      return s:six
+  " Converts hex string to given positional notation.
+  function! s:hex2(size, hex)
+    let s:sized = float2nr(round(str2nr(a:hex, 16) * a:size / 256.0))
+    if s:sized < a:size
+      return s:sized
     else
-      return 5
+      return a:size - 1
     endif
   endfunction
-  return hysteric_colors#RGB6(s:hex2six(strpart(a:hexcolor, 1, 2)),
-\                             s:hex2six(strpart(a:hexcolor, 3, 2)),
-\                             s:hex2six(strpart(a:hexcolor, 5, 2)))
+
+  let s:r6 = s:hex2(6, strpart(a:hexcolor, 1, 2))
+  let s:g6 = s:hex2(6, strpart(a:hexcolor, 3, 2))
+  let s:b6 = s:hex2(6, strpart(a:hexcolor, 5, 2))
+  if s:r6 == s:g6 && s:g6 == s:b6
+    " rgb color is rounded, returns mono color
+    return hysteric_colors#Mono25((s:hex2(25, strpart(a:hexcolor, 1, 2))
+\                                  + s:hex2(25, strpart(a:hexcolor, 3, 2))
+\                                  + s:hex2(25, strpart(a:hexcolor, 5, 2)))
+\                                 / 3)
+  else
+    return hysteric_colors#RGB6(s:r6, s:g6, s:b6)
+  endif
 endfunction
 
 " apply color to multiple items
