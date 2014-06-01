@@ -17,6 +17,17 @@ endif
 let g:colors_name = "tricolore"
 let g:base_background = 'dark'
 
+" Pallet
+let s:positive = "#425290"
+let s:positive_dark = "#12124a"
+let s:positive_light = "#bfbfe0"
+let s:negative = "#9a3949"
+let s:negative_dark = "#7a202f"
+let s:negative_light = "#cb838e"
+let s:neutral = "#"
+let s:neutral_dark = "#"
+let s:neutral_light = "#"
+
 " Normal texts.
 call hysteric_colors#Applys("NONE", hysteric_colors#Mono25(23),
 \                           "Normal",
@@ -107,18 +118,18 @@ call hysteric_colors#Apply("StatusLineNC",    "NONE",         hysteric_colors#Mo
 call hysteric_colors#Apply("StatusLine",      "NONE",         hysteric_colors#RGB6(4, 0, 0))
 
 "VimDiff
-call hysteric_colors#Applys(hysteric_colors#RGB6(4, 4, 5),
-\                           hysteric_colors#RGB6(2, 2, 4),
+call hysteric_colors#Applys(s:positive_light,
+\                           s:positive,
 \                           "DiffAdd")
-call hysteric_colors#Applys(hysteric_colors#RGB6(4, 4, 5),
-\                           hysteric_colors#RGB6(0, 0, 2),
+call hysteric_colors#Applys(s:positive_light,
+\                           s:positive_dark,
 \                           "DiffChange")
-call hysteric_colors#Applys(hysteric_colors#RGB6(3, 3, 4),
-\                           hysteric_colors#RGB6(0, 0, 1),
+call hysteric_colors#Applys(s:positive,
+\                           s:positive_dark,
 \                           "DiffText")
 call hysteric_colors#Applys(hysteric_colors#Mono25(24),
-\                          hysteric_colors#RGB6(3, 0, 0),
-\                          "DiffDelete")
+\                           s:negative_dark,
+\                           "DiffDelete")
 
 call hysteric_colors#Apply("Directory",       "NONE",         hysteric_colors#RGB6(4, 0, 0))
 

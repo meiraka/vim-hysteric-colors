@@ -1,8 +1,42 @@
 
 " apply color to label
-"TODO: Generates 256 color based 16, 24bit color
-function! hysteric_colors#Apply (label, background, forguround)
-  exec "hi " . a:label . " guifg=#000000 guisp=#000000 gui=NONE" . " ctermbg=" . a:background . " ctermfg=" . a:forguround " cterm=NONE"
+" TODO Generates 256 color based 16, 24bit color
+function! hysteric_colors#Apply (label, background, forground)
+
+  " Returns hex color and term color list from hex color or term color
+  function! s:get2typecolor(color)
+    if a:color ==# "NONE"
+      return ["NONE", "NONE"]
+    elseif type(a:color) == 0
+      return ["#000000", a:color]
+    elseif type(a:color) == 1
+      return [a:color, hysteric_colors#HexToTerm(a:color)]
+    else
+      throw "unsupported color type: " . a:color
+    endif
+  endfunction
+
+  let s:bg = s:get2typecolor(a:background)
+  let s:fg = s:get2typecolor(a:forground)
+
+  exec "hi " . a:label . 
+\      " guifg=" . s:fg[0] . " guibg=" . s:bg[0] . " gui=NONE" . 
+\      " ctermbg=" .s:bg[1] . " ctermfg=" . s:fg[1] " cterm=NONE"
+endfunction
+
+" Converts 24bit color to term color.
+function! hysteric_colors#HexToTerm (hexcolor)
+  function! s:hex2six(hex)
+    let s:six = float2nr(round(str2nr(a:hex, 16) * 6 / 256.0))
+    if s:six < 6
+      return s:six
+    else
+      return 5
+    endif
+  endfunction
+  return hysteric_colors#RGB6(s:hex2six(strpart(a:hexcolor, 1, 2)),
+\                             s:hex2six(strpart(a:hexcolor, 3, 2)),
+\                             s:hex2six(strpart(a:hexcolor, 5, 2)))
 endfunction
 
 " apply color to multiple items
