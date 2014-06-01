@@ -107,10 +107,18 @@ call hysteric_colors#Apply("StatusLineNC",    "NONE",         hysteric_colors#Mo
 call hysteric_colors#Apply("StatusLine",      "NONE",         hysteric_colors#RGB6(4, 0, 0))
 
 "VimDiff
-call hysteric_colors#Apply("DiffAdd",         hysteric_colors#RGB6(2, 0, 0), hysteric_colors#Mono25(2))
-call hysteric_colors#Apply("DiffDelete",      hysteric_colors#Mono25(2), hysteric_colors#RGB6(2, 0, 0))
-call hysteric_colors#Apply("DiffChange",      hysteric_colors#RGB6(2, 0, 0), hysteric_colors#Mono25(24))
-call hysteric_colors#Apply("DiffText",        hysteric_colors#RGB6(2, 0, 0), hysteric_colors#Mono25(20))
+call hysteric_colors#Applys(hysteric_colors#RGB6(4, 4, 5),
+\                           hysteric_colors#RGB6(2, 2, 4),
+\                           "DiffAdd")
+call hysteric_colors#Applys(hysteric_colors#RGB6(4, 4, 5),
+\                           hysteric_colors#RGB6(0, 0, 2),
+\                           "DiffChange")
+call hysteric_colors#Applys(hysteric_colors#RGB6(3, 3, 4),
+\                           hysteric_colors#RGB6(0, 0, 1),
+\                           "DiffText")
+call hysteric_colors#Applys(hysteric_colors#Mono25(24),
+\                          hysteric_colors#RGB6(3, 0, 0),
+\                          "DiffDelete")
 
 call hysteric_colors#Apply("Directory",       "NONE",         hysteric_colors#RGB6(4, 0, 0))
 
