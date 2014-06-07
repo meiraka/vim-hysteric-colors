@@ -18,6 +18,7 @@ let g:colors_name = "tricolore"
 let g:base_background = 'dark'
 
 " Pallet
+let s:accent = "#e3b970"
 let s:positive = "#425290"
 let s:positive_dark = "#12124a"
 let s:positive_light = "#bfbff0"
@@ -66,19 +67,19 @@ call hysteric_colors#Apply("Function", "NONE", s:positive)
 call hysteric_colors#Applys("NONE", s:neutral,
 \                           "Identifier")
 
-" keywords
-call hysteric_colors#Applys("NONE", s:positive_dark,
-\                           "Keywords")
 " state
-call hysteric_colors#Applys("NONE", s:positive_dark,
-\                           "Statement")
-call hysteric_colors#Applys("NONE", s:negative,
-\                           "Operator")
+call hysteric_colors#Applys("NONE", s:accent,
+\                           "Statement",
+\                           "Operator",
+\                           "cppAccess")
 call hysteric_colors#Applys("NONE", s:positive,
 \                           "Conditional",
 \                           "Repeat",
 \                           "Label",
-\                           "Exception")
+\                           "Exception",
+\                           "Keyword")
+call hysteric_colors#Applys("None", s:negative,
+\                           "cppCast")
 
 call hysteric_colors#Apply("Title", s:positive_light, s:positive_dark)
 
