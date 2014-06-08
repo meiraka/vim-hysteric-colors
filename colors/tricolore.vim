@@ -21,13 +21,13 @@ let g:base_background = 'dark'
 let s:accent = "#e3b970"
 let s:positive = "#425290"
 let s:positive_dark = "#12124a"
-let s:positive_light = "#bfbff0"
+let s:positive_light = "#b6bff0"
 let s:negative = "#b20200"
 let s:negative_dark = "#7a1010"
 let s:negative_light = "#cf8080"
-let s:neutral = "#909090"
+let s:neutral = "#808080"
 let s:neutral_dark = "#202020"
-let s:neutral_light = "#f0f0f0"
+let s:neutral_light = "#F0F0F0"
 
 if &background ==# 'light'
   let s:temp = s:positive_dark
@@ -68,8 +68,10 @@ call hysteric_colors#Applys("NONE", s:neutral,
 \                           "Identifier")
 
 " state
-call hysteric_colors#Applys("NONE", s:accent,
+call hysteric_colors#Applys("NONE", s:positive_light,
 \                           "Statement",
+\                           "cppCast")
+call hysteric_colors#Applys("NONE", s:accent,
 \                           "Operator",
 \                           "cppAccess")
 call hysteric_colors#Applys("NONE", s:positive,
@@ -78,8 +80,6 @@ call hysteric_colors#Applys("NONE", s:positive,
 \                           "Label",
 \                           "Exception",
 \                           "Keyword")
-call hysteric_colors#Applys("None", s:negative,
-\                           "cppCast")
 
 call hysteric_colors#Apply("Title", s:positive_light, s:positive_dark)
 
@@ -105,7 +105,7 @@ call hysteric_colors#Applys("NONE", s:negative_dark,
 \                           "PreProc",
 \                           "Define",
 \                           "PreCondit")
-call hysteric_colors#Applys("NONE", s:positive_dark,
+call hysteric_colors#Applys("NONE", s:positive_light,
 \                           "Include")
 
 
