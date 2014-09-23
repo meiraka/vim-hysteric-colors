@@ -119,6 +119,12 @@ call hysteric_colors#Apply("Error", s:negative_dark, s:neutral_light)
 
 
 "User Interface
+" Inactive
+call hysteric_colors#Applys("NONE", s:positive_dark,
+\                           "LineNr")
+" Active
+call hysteric_colors#Applys(s:neutral_dark, "NONE",
+\                           "CursorLineNr")
 "Menu
 call hysteric_colors#Apply("PMenuSbar", s:neutral_light, s:neutral_light)
 call hysteric_colors#Apply("PMenuSel",  s:positive_dark, s:neutral_light)

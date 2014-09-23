@@ -72,3 +72,44 @@ endfunction
 function! hysteric_colors#RGB6(r, g, b)
   return 16 + a:r * 6 * 6 + a:g * 6 + a:b
 endfunction
+
+" returns Color object(tuple of rgb, 24bit)
+function! hysteric_colors#Color(hexcolor)
+  let s:r = str2nr(strpart(a:hexcolor, 1, 2), 16)
+  let s:g = str2nr(strpart(a:hexcolor, 3, 2), 16)
+  let s:b = str2nr(strpart(a:hexcolor, 5, 2), 16)
+  return [s:r, s:g, s:b]
+endfunction
+
+function! hysteric_colors#ColorToHex(color)
+  let s:rs = printf("%x", a:color[0])
+  let s:gs = printf("%x", a:color[1])
+  let s:bs = printf("%x", a:color[2])
+  return "#" . s:rs . s:gs . s:bs
+endfunction
+
+" returns brightness
+function! hysteric_colors#ColorBrightness(color)
+  return max(a:color)
+endfunction
+
+" returns apply brightness
+" 
+" require 42 or birght value to change term color.
+function! hysteric_colors#ColorAddBrightness(color, brightness)
+  let [s:r, s:g, s:b] = a:color
+  return [hysteric_colors#ColorPartRounding(s:r + a:brightness),
+\         hysteric_colors#ColorPartRounding(s:g + a:brightness),
+\         hysteric_colors#ColorPartRounding(s:b + a:brightness)]
+endfunction
+
+" rounding 24 bit color
+function! hysteric_colors#ColorPartRounding(color_part)
+  if a:color_part < 0
+    return 0
+  elseif 255 < a:color_part
+    return 255
+  else
+    return a:color_part
+  endif
+endfunction
