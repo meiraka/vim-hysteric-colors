@@ -7,6 +7,7 @@ if &background ==# 'dark' || &background ==# 'light'
 else
     set background = dark
 endif
+
 if version > 580
 	hi clear
 	if exists("syntax_on")
@@ -15,7 +16,6 @@ if version > 580
 endif
 
 let g:colors_name = "le_petit_chaperonrouge"
-let g:base_background = 'dark'
 
 " Pallet
 " green
@@ -28,7 +28,6 @@ let s:positive_light = "#993745"
 let s:neutral_dark = "#402020"
 let s:neutral = "#806060"
 let s:neutral_light = "#c0a0a0"
-
 " red to white
 let s:negative_dark = "#c10138"
 let s:negative = "#81553d"
@@ -68,7 +67,10 @@ call hysteric_colors#Applys("NONE", s:positive_light,
 call hysteric_colors#Applys("NONE", s:negative_light,
 \                           "Character",
 \                           "String")
-call hysteric_colors#Apply("Function", "NONE", s:positive)
+
+
+call hysteric_colors#Applys("NONE", s:positive,
+\                           "Function")
 call hysteric_colors#Applys("NONE", s:neutral,
 \                           "Identifier")
 
@@ -77,8 +79,7 @@ call hysteric_colors#Applys("NONE", s:positive_light,
 \                           "Statement",
 \                           "cppCast")
 call hysteric_colors#Applys("NONE", s:accent,
-\                           "Operator",
-\                           "cppAccess")
+\                           "Operator")
 call hysteric_colors#Applys("NONE", s:positive,
 \                           "Conditional",
 \                           "Repeat",
@@ -94,7 +95,7 @@ call hysteric_colors#Apply("Type",
 call hysteric_colors#Apply("StorageClass",
 \                          "NONE", s:positive_light)
 call hysteric_colors#Apply("Typedef",
-\                          "NONE", s:negative)
+\                          "NONE", s:accent)
 
 " bracket pair
 call hysteric_colors#Apply("MatchParen", s:positive_dark, s:positive_light)
@@ -115,7 +116,8 @@ call hysteric_colors#Applys("NONE", s:positive_light,
 
 
 " Special
-call hysteric_colors#Applys("NONE", s:negative,
+call hysteric_colors#Applys("NONE", s:accent,
+\                           "Special",
 \                           "SpecialChar")
 call hysteric_colors#Apply("SpecialChar", "NONE", s:negative_dark)
 
