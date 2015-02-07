@@ -82,9 +82,9 @@ function! hysteric_colors#Color(hexcolor)
 endfunction
 
 function! hysteric_colors#ColorToHex(color)
-  let s:rs = printf("%x", a:color[0])
-  let s:gs = printf("%x", a:color[1])
-  let s:bs = printf("%x", a:color[2])
+  let s:rs = printf("%02x", a:color[0])
+  let s:gs = printf("%02x", a:color[1])
+  let s:bs = printf("%02x", a:color[2])
   return "#" . s:rs . s:gs . s:bs
 endfunction
 
