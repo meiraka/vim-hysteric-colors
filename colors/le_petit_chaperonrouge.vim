@@ -33,7 +33,23 @@ let s:negative_dark = "#c10138"
 let s:negative = "#81553d"
 let s:negative_light = "#ffffff"
 
+function! s:lighter(hexcolor)
+  return hysteric#hexcolor#add_brightness(a:hexcolor, 6)
+endfunction
+
+function! s:darker(hexcolor)
+  return hysteric#hexcolor#add_brightness(a:hexcolor, -6)
+endfunction
+
 if &background ==# 'light'
+  function! s:lighter(hexcolor)
+    return hysteric#hexcolor#add_brightness(a:hexcolor, -6)
+  endfunction
+  
+  function! s:darker(hexcolor)
+    return hysteric#hexcolor#add_brightness(a:hexcolor, 6)
+  endfunction
+
   let s:temp = s:positive_dark
   let s:positive_dark = s:positive_light
   let s:positive_light = s:temp
@@ -95,7 +111,7 @@ call hysteric_colors#apply("Type",
 call hysteric_colors#apply("StorageClass",
 \                          "NONE", s:positive_light)
 call hysteric_colors#apply("Typedef",
-\                          "NONE", s:accent)
+\                          "NONE", s:lighter(s:accent))
 
 " bracket pair
 call hysteric_colors#apply("MatchParen", s:positive_dark, s:positive_light)
