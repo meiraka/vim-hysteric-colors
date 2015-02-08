@@ -54,115 +54,115 @@ else
 endif
 
 " Normal texts.
-call hysteric_colors#Applys(s:background, s:neutral_light,
+call hysteric_colors#applys(s:background, s:neutral_light,
 \                           "Normal",
 \                           "Folded")
 
 " values
-call hysteric_colors#Applys("NONE", s:positive_light,
+call hysteric_colors#applys("NONE", s:positive_light,
 \                           "Constant",
 \                           "Boolean",
 \                           "Float",
 \                           "Number")
-call hysteric_colors#Applys("NONE", s:negative_light,
+call hysteric_colors#applys("NONE", s:negative_light,
 \                           "Character",
 \                           "String")
 
 
-call hysteric_colors#Applys("NONE", s:positive,
+call hysteric_colors#applys("NONE", s:positive,
 \                           "Function")
-call hysteric_colors#Applys("NONE", s:neutral,
+call hysteric_colors#applys("NONE", s:neutral,
 \                           "Identifier")
 
 " state
-call hysteric_colors#Applys("NONE", s:positive_light,
+call hysteric_colors#applys("NONE", s:positive_light,
 \                           "Statement",
 \                           "cppCast")
-call hysteric_colors#Applys("NONE", s:accent,
+call hysteric_colors#applys("NONE", s:accent,
 \                           "Operator")
-call hysteric_colors#Applys("NONE", s:positive,
+call hysteric_colors#applys("NONE", s:positive,
 \                           "Conditional",
 \                           "Repeat",
 \                           "Label",
 \                           "Exception",
 \                           "Keyword")
 
-call hysteric_colors#Apply("Title", s:positive_light, s:positive_dark)
+call hysteric_colors#apply("Title", s:positive_light, s:positive_dark)
 
 " type
-call hysteric_colors#Apply("Type",
+call hysteric_colors#apply("Type",
 \                          "NONE", s:negative_light)
-call hysteric_colors#Apply("StorageClass",
+call hysteric_colors#apply("StorageClass",
 \                          "NONE", s:positive_light)
-call hysteric_colors#Apply("Typedef",
+call hysteric_colors#apply("Typedef",
 \                          "NONE", s:accent)
 
 " bracket pair
-call hysteric_colors#Apply("MatchParen", s:positive_dark, s:positive_light)
+call hysteric_colors#apply("MatchParen", s:positive_dark, s:positive_light)
 
 " comments TODO:
-call hysteric_colors#Apply("Comment", s:neutral, s:neutral_light)
-call hysteric_colors#Apply("SpecialComment", s:negative_dark, s:positive_light)
-call hysteric_colors#Apply("Todo", s:negative_dark, s:neutral_light)
+call hysteric_colors#apply("Comment", s:neutral, s:neutral_light)
+call hysteric_colors#apply("SpecialComment", s:negative_dark, s:positive_light)
+call hysteric_colors#apply("Todo", s:negative_dark, s:neutral_light)
 
 
 "PreProcessor
-call hysteric_colors#Applys("NONE", s:negative_dark,
+call hysteric_colors#applys("NONE", s:negative_dark,
 \                           "PreProc",
 \                           "Define",
 \                           "PreCondit")
-call hysteric_colors#Applys("NONE", s:positive_light,
+call hysteric_colors#applys("NONE", s:positive_light,
 \                           "Include")
 
 
 " Special
-call hysteric_colors#Applys("NONE", s:accent,
+call hysteric_colors#applys("NONE", s:accent,
 \                           "Special",
 \                           "SpecialChar")
-call hysteric_colors#Apply("SpecialChar", "NONE", s:negative_dark)
+call hysteric_colors#apply("SpecialChar", "NONE", s:negative_dark)
 
 "Other
-call hysteric_colors#Apply("Error", s:negative_dark, s:negative_light)
+call hysteric_colors#apply("Error", s:negative_dark, s:negative_light)
 
 
 "User Interface
 " Inactive
-call hysteric_colors#Applys("NONE", s:positive_dark,
+call hysteric_colors#applys("NONE", s:positive_dark,
 \                           "LineNr")
 " Active
-call hysteric_colors#Applys(s:neutral_dark, "NONE",
+call hysteric_colors#applys(s:neutral_dark, "NONE",
 \                           "CursorLineNr")
 "Menu
-call hysteric_colors#Apply("PMenuSbar", s:positive_dark, s:positive)
-call hysteric_colors#Apply("PMenuSel",  s:positive, s:positive_dark)
-call hysteric_colors#Apply("PMenu",     s:positive_dark, s:positive)
-call hysteric_colors#Apply("WildMenu",  s:positive_dark, s:positive)
+call hysteric_colors#apply("PMenuSbar", s:positive_dark, s:positive)
+call hysteric_colors#apply("PMenuSel",  s:positive, s:positive_dark)
+call hysteric_colors#apply("PMenu",     s:positive_dark, s:positive)
+call hysteric_colors#apply("WildMenu",  s:positive_dark, s:positive)
 
 "Search
-call hysteric_colors#Apply("Question",  "NONE", s:negative)
-call hysteric_colors#Apply("Search",    s:negative, s:neutral_light)
-call hysteric_colors#Apply("IncSearch", s:negative, s:neutral_light)
+call hysteric_colors#apply("Question",  "NONE", s:negative)
+call hysteric_colors#apply("Search",    s:negative, s:neutral_light)
+call hysteric_colors#apply("IncSearch", s:negative, s:neutral_light)
 
 "Split
-call hysteric_colors#Apply("VertSplit",     s:neutral_dark, s:neutral_dark)
+call hysteric_colors#apply("VertSplit",     s:neutral_dark, s:neutral_dark)
 
-call hysteric_colors#Apply("StatusLineNC",    "NONE",         s:neutral_dark)
-call hysteric_colors#Apply("StatusLine",      "NONE",         s:negative_light)
+call hysteric_colors#apply("StatusLineNC",    "NONE",         s:neutral_dark)
+call hysteric_colors#apply("StatusLine",      "NONE",         s:negative_light)
 
 "VimDiff
-call hysteric_colors#Applys(s:accent,
+call hysteric_colors#applys(s:accent,
 \                           s:positive,
 \                           "DiffAdd")
-call hysteric_colors#Applys(s:negative_dark,
+call hysteric_colors#applys(s:negative_dark,
 \                           s:negative_light,
 \                           "DiffDelete")
-call hysteric_colors#Applys(s:positive_dark,
+call hysteric_colors#applys(s:positive_dark,
 \                           s:positive,
 \                           "DiffChange")
-call hysteric_colors#Applys(s:accent,
+call hysteric_colors#applys(s:accent,
 \                           s:neutral,
 \                           "DiffText")
 
-call hysteric_colors#Apply("Directory", "NONE", s:negative_light)
+call hysteric_colors#apply("Directory", "NONE", s:negative_light)
 
 endif
