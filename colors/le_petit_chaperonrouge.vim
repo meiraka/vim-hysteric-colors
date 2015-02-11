@@ -143,6 +143,8 @@ call hysteric_colors#apply("Error", s:negative_dark, s:negative_light)
 
 "User Interface
 " Inactive
+call hysteric_colors#applys(s:lighter(s:neutral_dark), "NONE",
+\                           "CursorLine")   
 call hysteric_colors#applys("NONE", s:positive_dark,
 \                           "LineNr")
 " Active
