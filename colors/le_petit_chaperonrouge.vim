@@ -169,13 +169,13 @@ call hysteric_colors#apply("StatusLine",      "NONE",         s:negative_light)
 
 "VimDiff
 call hysteric_colors#applys(s:accent,
-\                           s:positive,
+\                           s:neutral,
 \                           "DiffAdd")
 call hysteric_colors#applys(s:negative_dark,
 \                           s:negative_light,
 \                           "DiffDelete")
-call hysteric_colors#applys(s:positive_dark,
-\                           s:positive,
+call hysteric_colors#applys(s:neutral_light,
+\                           s:neutral,
 \                           "DiffChange")
 call hysteric_colors#applys(s:accent,
 \                           s:neutral,
